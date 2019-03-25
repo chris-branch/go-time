@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Golang Time Converter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="time.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container h-100">
+        <div class="row">
+            <div class="col col-lg-10 offset-lg-1">
+                <h1>Golang Time Converter</h1>
+                <p>Golang provides a <a href="https://golang.org/pkg/time/">Time package</a> that contains functionality for measuring and
+                    displaying time. One of the primary data structures that is consumed and returned by functions in the Time package is
+                    the <a href="https://golang.org/pkg/time/#Time">Time type</a>. This structure contains several private fields
+                    that are used internally and are normally invisible. However, sometimes when stepping through code using the debugger,
+                    it would be helpful to have the ability to decode the internal values and display the date/time in a human-readable
+                    format. This utility serves that purpose. Enter the <code>wall</code> and <code>ext</code> values below to convert to UTC.</p>
+
+                <form class="mb-5" onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <label for="wall">Wall:</label>
+                        <input id="wall" type="text" class="form-control" maxlength="30">
+                    </div>
+                    <div class="form-group">
+                        <label for="ext">Ext:</label>
+                        <input id="ext" type="text" class="form-control" maxlength="30">
+                    </div>
+                    <button id="convertButton" type="button" class="btn btn-primary">Convert</button>
+                </form>
+
+                <div id="result" class="p-4 border border-success rounded font-weight-bold">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#convertButton").click(convert);
+        });        
+    </script>
+</body>
+</html>
